@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.KehutousuDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.KehutousuEntity" id="kehutousuMap">
+        <result property="tousubianhao" column="tousubianhao"/>
+        <result property="kehuzhanghao" column="kehuzhanghao"/>
+        <result property="kehuxingming" column="kehuxingming"/>
+        <result property="shouji" column="shouji"/>
+        <result property="tousuneirong" column="tousuneirong"/>
+        <result property="tousushijian" column="tousushijian"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.KehutousuVO" >
+		SELECT * FROM kehutousu  kehutousu         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.KehutousuVO" >
+		SELECT  kehutousu.* FROM kehutousu  kehutousu
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.KehutousuView" >
+
+		SELECT  kehutousu.* FROM kehutousu  kehutousu 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.KehutousuView" >
+		SELECT * FROM kehutousu  kehutousu <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	
+</mapper>
